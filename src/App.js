@@ -51,7 +51,7 @@ class App extends Component {
         <p>Result</p>
         <p>{this.props.simpleReducer}</p>
         <p>{this.props.changeReducer}</p>
-        
+        <p>{JSON.stringify(this.props.getAPIReducer)}</p>
 
         <input type="text" value={this.state.value} name="name" onChange={this.handleSubmit} />
         <button onClick={() => this.changeInput(this.state.value)}>Test redux action</button>
@@ -65,7 +65,7 @@ const  objectToArray = (obj) => Object.keys(obj).map((i) => obj[i])
 const mapStateToProps = ({simpleReducer,changeReducer,getAPIReducer}) => ({
   simpleReducer:objectToArray(simpleReducer),
   changeReducer:objectToArray(changeReducer),
-  getAPIReducer:objectToArray(getAPIReducer),
+  getAPIReducer:getAPIReducer,
 })
 const mapDispatchToProps = dispatch => ({
   simpleAction: () => dispatch(simpleAction()),
